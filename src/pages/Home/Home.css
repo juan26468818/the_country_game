@@ -19,5 +19,7 @@
     font-size: 50px;
 }
 .flag{
-    max-width: 500px;
+    width: 500px;
+    max-height: 300px;
+    object-fit: cover;
 }

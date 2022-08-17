@@ -6,6 +6,7 @@ import { type } from "@testing-library/user-event/dist/type"
 // import { getPopulation } from "../../services/getPopulation"
 const Home = () =>{
     const [countries, setcountries] = useState();
+    const [reset, setReset] = useState(true);
    
     useEffect(()=>{
         fetch('https://restcountries.com/v3.1/all')
@@ -14,28 +15,38 @@ const Home = () =>{
             .catch(err => console.error(err));
 
     }, [])
-const isCountries = () =>{
-    const randomNum =  Math.floor(Math.random()*250)
-    const firstNum = Math.floor(Math.random()*250)
-    const secondNum = Math.floor(Math.random()*250)
+    const handleClick = ((e)=>{
+        e.preventDefault()
+        setReset(reset ? false : true)
+        console.log(reset)
+    })
+    const isCountries = () =>{
+        const randomNum =  Math.floor(Math.random()*250)
+        const firstNum = Math.floor(Math.random()*250)
+        const secondNum = Math.floor(Math.random()*250)
 
-    if(countries !== undefined && firstNum !== secondNum){
-        console.log(countries)
-        return (
-            <div className="card-container">
-                <p>{countries[randomNum].name.common}</p>
-                <img src={countries[randomNum].flags.svg} className="flag"/>
-            </div>
-        )
-    }else if(firstNum === secondNum){
-        isCountries()
+        if(countries !== undefined && firstNum !== secondNum){
+            console.log(countries)
+            return (
+                <div className="card-container">
+                    <p>{countries[randomNum].name.common}</p>
+                    <img src={countries[randomNum].flags.svg} className="flag"/>
+                    <button type="submit" className="button" onClick={handleClick}>Has more people</button>
+                </div>
+            )
+        }else if(firstNum === secondNum){
+            isCountries()
+        }
     }
-}
     return (
         <div className="app">
-            <div className={`card first`}>{isCountries()}
+            <div className={`card first`}>
+                {isCountries()}
             </div>
-            <div className="card">{isCountries()}</div>
+            <div className="card">
+                {isCountries()}
+            </div>
+            
         </div>
     )
 }
