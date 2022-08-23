@@ -18,7 +18,6 @@ const Home = () =>{
     const handleClick = ((e)=>{
         e.preventDefault()
         setReset(reset ? false : true)
-        console.log(reset)
     })
     const isCountries = () =>{
         const randomNum =  Math.floor(Math.random()*250)
@@ -26,11 +25,10 @@ const Home = () =>{
         const secondNum = Math.floor(Math.random()*250)
 
         if(countries !== undefined && firstNum !== secondNum){
-            console.log(countries)
             return (
                 <div className="card-container">
-                    <p>{countries[randomNum].name.common}</p>
-                    <img src={countries[randomNum].flags.svg} className="flag"/>
+                    <p>{countries[firstNum].name.common}</p>
+                    <img src={countries[firstNum].flags.svg} className="flag"/>
                     <button type="submit" className="button" onClick={handleClick}>Has more people</button>
                 </div>
             )
