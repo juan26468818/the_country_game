@@ -7,7 +7,8 @@ import { type } from "@testing-library/user-event/dist/type"
 const Home = () =>{
     const [countries, setcountries] = useState();
     const [reset, setReset] = useState(true);
-   
+    const firstNum = Math.floor(Math.random()*250)
+    const secondNum = Math.floor(Math.random()*250)
     useEffect(()=>{
         fetch('https://restcountries.com/v3.1/all')
             .then(response => response.json())
@@ -19,30 +20,28 @@ const Home = () =>{
         e.preventDefault()
         setReset(reset ? false : true)
     })
-    const isCountries = () =>{
-        const randomNum =  Math.floor(Math.random()*250)
-        const firstNum = Math.floor(Math.random()*250)
-        const secondNum = Math.floor(Math.random()*250)
+    const isCountries = (card) =>{
 
         if(countries !== undefined && firstNum !== secondNum){
             return (
                 <div className="card-container">
-                    <p>{countries[firstNum].name.common}</p>
-                    <img src={countries[firstNum].flags.svg} className="flag"/>
+                    <p>{countries[card].name.common}</p>
+                    <img src={countries[card].flags.svg} className="flag"/>
                     <button type="submit" className="button" onClick={handleClick}>Has more people</button>
                 </div>
             )
         }else if(firstNum === secondNum){
+            
             isCountries()
         }
     }
     return (
         <div className="app">
-            <div className={`card first`}>
-                {isCountries()}
+            <div className="card first">
+                {isCountries(firstNum)}
             </div>
             <div className="card">
-                {isCountries()}
+                {isCountries(secondNum)}
             </div>
             
         </div>
