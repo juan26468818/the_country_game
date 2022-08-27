@@ -1,13 +1,18 @@
 .app {
     background-color: #282c34;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
-    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+    text-align: center;
 }
 .card{
     width: 50vw;
     height: 90vh;
     background-color: wheat;
+}
+.main-container{
+    display: flex;
 }
 .first{
     background-color: rebeccapurple;
@@ -21,4 +26,8 @@
 .flag{
     max-width: 500px;
     max-height: 300px;
+}
+.counter{
+    font-size: 50px;
+    color: white;
 }
