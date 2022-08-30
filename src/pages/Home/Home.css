@@ -31,3 +31,6 @@
     font-size: 50px;
     color: white;
 }
+.result{
+    opacity: 0;
+}
