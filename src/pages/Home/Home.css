@@ -1,3 +1,6 @@
+html{
+    font-size: 62.5%;
+}
 .app {
     background-color: #282c34;
     height: 100vh;
@@ -5,17 +8,21 @@
     justify-content: flex-end;
     flex-direction: column;
     text-align: center;
+    color: white;
+}
+h1{
+    font-size: 3rem;  
 }
 .card{
     width: 50vw;
     height: 90vh;
-    background-color: wheat;
+    
 }
 .main-container{
     display: flex;
 }
 .first{
-    background-color: rebeccapurple;
+  
 }
 .card-container{
     display: flex;
@@ -23,14 +30,20 @@
     align-items: center;
     font-size: 50px;
 }
+.button{
+    margin-top: 2rem;
+}
 .flag{
-    max-width: 500px;
-    max-height: 300px;
+    max-width: 50rem;
+    max-height: 30rem;
 }
 .counter{
     font-size: 50px;
-    color: white;
+    color: #0acd00;
 }
 .result{
     opacity: 0;
+}
+.result_v{
+    font-size: 4rem;
 }
