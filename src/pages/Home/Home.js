@@ -9,7 +9,6 @@ const Home = () =>{
     // const secondNum = Math.floor(Math.random()*250)
     const [visible, setVisible] = useState("result");
     const [counter, setCounter] = useState(0);
-    const [test, setTest] = useState(false);
     useEffect(()=>{
         fetch('https://restcountries.com/v3.1/all')
             .then(response => response.json())
@@ -60,14 +59,14 @@ const Home = () =>{
 
                 <div className="card first">
                     {isCountries(firstNum)}
-                    {/* <p className={visible}>{countries[firstNum].population}</p> */}
+                    <p className={visible}>{`It has ${countries[firstNum].population} people`}</p>
                 </div>
                 <div className="counter">
                     {counter}
                 </div>
                 <div className="card">
                     {isCountries(secondNum)}
-                    {/* <p className={visible}>{countries[secondNum].population}</p> */}
+                    <p className={visible}>{`It has ${countries[secondNum].population} people`}</p>
                 </div>
                 
                 
