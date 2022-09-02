@@ -45,6 +45,7 @@ const Home = () =>{
                     <p>{countries[card].name.common}</p>
                     <img src={countries[card].flags.svg} className="flag"/>
                     <button type="button"className="button" onClick={handleClick} id={card}>Has more people</button>
+                    <p className={visible}>{`It has ${countries[card].population} people`}</p>
                 </div>
             )
         }else if(firstNum === secondNum){
@@ -59,14 +60,14 @@ const Home = () =>{
 
                 <div className="card first">
                     {isCountries(firstNum)}
-                    <p className={visible}>{`It has ${countries[firstNum].population} people`}</p>
+                    
                 </div>
                 <div className="counter">
                     {counter}
                 </div>
                 <div className="card">
                     {isCountries(secondNum)}
-                    <p className={visible}>{`It has ${countries[secondNum].population} people`}</p>
+                
                 </div>
                 
                 
