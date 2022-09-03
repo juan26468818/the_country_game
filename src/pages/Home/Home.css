@@ -1,5 +1,9 @@
 @keyframes transition_w {
-    to{background-color: #0acd00;}
+    from{background-color: #282c34;}
+    to{background-color: #60c45b;}
+}@keyframes transition_l {
+    from{background-color: #282c34;}
+    to{background-color: rgb(255, 110, 110);}
 }
 
 html{
@@ -49,7 +53,7 @@ h1{
     background-color: #06bcee;
 }
 .button:active{
-    animation: transition_w 5s linear 2s alternate;
+    background-color: #60c45b;
 }
 .flag{
     max-width: 50rem;
@@ -58,9 +62,11 @@ h1{
 }
 .winner{
     background-color: #60c45b;
+    animation: transition_w .5s ease-in-out 0s alternate;
 
 }.looser{
     background-color: rgb(255, 110, 110);
+    animation: transition_l .3s ease-in-out 0s alternate;
 }
 .counter{
     font-size: 50px;
