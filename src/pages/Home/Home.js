@@ -28,7 +28,7 @@ const Home = () =>{
                 setVisible("result")
                 setFirstNum(Math.floor(Math.random()*250))
                 setSecondNum(Math.floor(Math.random()*250))
-            }, 1500);
+            }, 1250);
         }else if(e.target === document.getElementById(secondNum) && countries[secondNum].population > countries[firstNum].population){
             setVisible("result_v")
             setBackColor("winner")
@@ -38,7 +38,7 @@ const Home = () =>{
                 setVisible("result")
                 setFirstNum(Math.floor(Math.random()*250))
                 setSecondNum(Math.floor(Math.random()*250))
-            }, 1500);
+            }, 1250);
         }else if(e.target === document.getElementById(firstNum)&& countries[firstNum].population < countries[secondNum].population){
             setVisible("result_v")
             setBackColor("looser")
@@ -48,7 +48,7 @@ const Home = () =>{
                 setVisible("result")
                 setFirstNum(Math.floor(Math.random()*250))
                 setSecondNum(Math.floor(Math.random()*250))
-            }, 1500);
+            }, 1250);
 
         }else if(e.target === document.getElementById(secondNum)&& countries[secondNum].population < countries[firstNum].population){
             setVisible("result_v")
@@ -59,7 +59,7 @@ const Home = () =>{
                 setVisible("result")
                 setFirstNum(Math.floor(Math.random()*250))
                 setSecondNum(Math.floor(Math.random()*250))
-            }, 1500);
+            }, 1250);
 
         }
     })

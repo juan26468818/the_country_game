@@ -44,16 +44,16 @@ h1{
     width: 30rem;
     height: 5rem;
     border-radius: 2rem;
-    color: #06bcee;
-    background-color: transparent;
-    border-color: #06bcee;
+    color: white;
+    background-color: #282c34;
+    border: 2px solid white;
 }
 .button:hover{
     color: white;
     background-color: #06bcee;
 }
 .button:active{
-    background-color: #60c45b;
+    /* background-color: #60c5b; */
 }
 .flag{
     max-width: 50rem;
@@ -62,7 +62,7 @@ h1{
 }
 .winner{
     background-color: #60c45b;
-    animation: transition_w .5s ease-in-out 0s alternate;
+    animation: transition_w .3s ease-in-out 0s alternate;
 
 }.looser{
     background-color: rgb(255, 110, 110);
