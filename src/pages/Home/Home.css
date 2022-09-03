@@ -1,3 +1,7 @@
+@keyframes transition_w {
+    to{background-color: #0acd00;}
+}
+
 html{
     font-size: 62.5%;
 }
@@ -20,8 +24,6 @@ h1{
 }
 .main-container{
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
 .first{
   
@@ -30,7 +32,7 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 50px;
+    font-size: 4rem;
 }
 .button{
     font-size: 3rem;
@@ -47,19 +49,31 @@ h1{
     background-color: #06bcee;
 }
 .button:active{
-    background-color: #0acd00;
+    animation: transition_w 5s linear 2s alternate;
 }
 .flag{
     max-width: 50rem;
     max-height: 30rem;
+    border-radius: 2rem;
+}
+.winner{
+    background-color: #60c45b;
+
+}.looser{
+    background-color: rgb(255, 110, 110);
 }
 .counter{
     font-size: 50px;
-    color: #0acd00;
 }
 .result{
     opacity: 0;
 }
 .result_v{
     font-size: 4rem;
+}
+.vs{
+    font-family: cursive;
+    font-size: 5rem;
+    border-radius: 2rem;
+    background-color: #06bcee;
 }
