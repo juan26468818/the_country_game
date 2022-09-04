@@ -18,9 +18,6 @@ html{
     text-align: center;
     color: white;
 }
-h1{
-    font-size: 3rem;  
-}
 .card{
     width: 50vw;
     height: 90vh;
@@ -29,9 +26,7 @@ h1{
 .main-container{
     display: flex;
 }
-.first{
-  
-}
+
 .card-container{
     display: flex;
     flex-direction: column;
@@ -50,11 +45,10 @@ h1{
 }
 .button:hover{
     color: white;
-    background-color: #06bcee;
+    background-color: #60c45b;
+    animation: transition_w .3s ease-in-out 0s alternate;
 }
-.button:active{
-    /* background-color: #60c5b; */
-}
+
 .flag{
     max-width: 50rem;
     max-height: 30rem;
@@ -64,7 +58,7 @@ h1{
     background-color: #60c45b;
     animation: transition_w .3s ease-in-out 0s alternate;
 
-}.looser{
+}.loser{
     background-color: rgb(255, 110, 110);
     animation: transition_l .3s ease-in-out 0s alternate;
 }
