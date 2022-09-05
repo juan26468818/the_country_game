@@ -1,6 +1,8 @@
 import "./Home.css"
 import { useEffect, useState } from "react"
+import { useLocation } from "wouter";
 import Header from "../../components/header/header";
+import { Reset } from "../Reset/Reset";
 const Home = (() =>{
     const [countries, setCountries] = useState();
     const [firstNum, setFirstNum] = useState(Math.floor(Math.random()*250));
@@ -8,8 +10,10 @@ const Home = (() =>{
     const [backColor, setBackColor] = useState("");
     const [visible, setVisible] = useState("result");
     const [counter, setCounter] = useState(0);
+    const [record, setRecord] = useState(localStorage.getItem("record"));
     const [disable, setDisable] = useState(false);
     const button = document.querySelector(".button")
+    const [location, setLocation] = useLocation();
 
     //Llamada a API de paises.
     useEffect(()=>{
@@ -24,11 +28,13 @@ const Home = (() =>{
     const handleClick = ((e)=>{
         e.preventDefault()
         console.log(button)
+
         if(e.target === document.getElementById(firstNum)&& countries[firstNum].population > countries[secondNum].population){
             setDisable(true)
             setVisible("result_v")
             setBackColor("winner")
             setCounter(counter+1)
+            if(record <= counter) setRecord(counter+1)
             setTimeout(() => {
                 setDisable(false)
                 setBackColor("")
@@ -38,8 +44,10 @@ const Home = (() =>{
             }, 1250);
         }else if(e.target === document.getElementById(secondNum) && countries[secondNum].population > countries[firstNum].population){
             setDisable(true)
+            setVisible("result_v")
             setBackColor("winner")
             setCounter(counter+1)
+            if(record <= counter) setRecord(counter+1)
             setTimeout(() => {
                 setDisable(false)
                 setBackColor("")
@@ -59,6 +67,8 @@ const Home = (() =>{
                 setVisible("result")
                 setFirstNum(Math.floor(Math.random()*250))
                 setSecondNum(Math.floor(Math.random()*250))
+                localStorage.setItem('record', record)
+                setLocation("/Reset")
             }, 1250);
 
         }else if(e.target === document.getElementById(secondNum)&& countries[secondNum].population < countries[firstNum].population){
@@ -71,7 +81,9 @@ const Home = (() =>{
                 setBackColor("")
                 setVisible("result")
                 setFirstNum(Math.floor(Math.random()*250))
-                setSecondNum(Math.floor(Math.random()*250))
+                setSecondNum(Math.floor(Math.random()*250));
+                localStorage.setItem('record', record)
+                setLocation("/Reset")
             }, 1250);
 
         }
@@ -115,6 +127,7 @@ const Home = (() =>{
                 <div>
                     <p className="counter">Hits: {counter}</p>
                     <p className="vs">VS</p>
+                    <p className="counter">Best: {record}</p>
                 </div>
                 <div className={`card`}>
                     {isCountries(secondNum)}
