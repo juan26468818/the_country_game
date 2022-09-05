@@ -3,7 +3,10 @@
     to{background-color: #60c45b;}
 }@keyframes transition_l {
     from{background-color: #282c34;}
-    to{background-color: rgb(255, 110, 110);}
+    to{background-color: rgb(250, 43, 43);}
+}@keyframes transition_b {
+    from{background-color: #282c34;}
+    to{background-color: #06bcee;}
 }
 
 html{
@@ -45,8 +48,8 @@ html{
 }
 .button:hover{
     color: white;
-    background-color: #60c45b;
-    animation: transition_w .3s ease-in-out 0s alternate;
+    background-color: #06bcee;
+    animation: transition_b .3s ease-in-out 0s alternate;
 }
 
 .flag{
@@ -59,11 +62,12 @@ html{
     animation: transition_w .3s ease-in-out 0s alternate;
 
 }.loser{
-    background-color: rgb(255, 110, 110);
+    background-color: rgb(250, 43, 43);
     animation: transition_l .3s ease-in-out 0s alternate;
 }
 .counter{
     font-size: 50px;
+    margin: 4rem 0;
 }
 .result{
     opacity: 0;
