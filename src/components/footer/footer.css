@@ -3,7 +3,8 @@ footer{
     align-items: center;
     justify-content: center;
     background-color: #282c34;
-    height: 6vh;
+    height: 7vh;
+    color: white;
 }
 a{
     margin-right: 1rem;
