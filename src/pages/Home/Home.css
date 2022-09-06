@@ -21,13 +21,19 @@ html{
     text-align: center;
     color: white;
 }
-.card{
-    width: 50vw;
-    height: 90vh;
-    
-}
 .main-container{
+    background-color: #282c34;
+    width: 100vw;
+    height: 100vh;
     display: flex;
+}
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 50%;
+    
 }
 
 .card-container{
@@ -39,8 +45,7 @@ html{
 .button{
     font-size: 3rem;
     margin-top: 2rem;
-    width: 30rem;
-    height: 5rem;
+    padding: 1rem;
     border-radius: 2rem;
     color: white;
     background-color: #282c34;
@@ -53,7 +58,7 @@ html{
 }
 
 .flag{
-    max-width: 50rem;
+    width: 70%;
     max-height: 30rem;
     border-radius: 2rem;
 }
