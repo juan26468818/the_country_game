@@ -3,7 +3,6 @@ import { Link, useRoute } from "wouter"
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import sadCat from "../../Sad_Cat.webp"
-import Home from "../Home/Home";
 
 
 const Reset = (()=>{

@@ -3,5 +3,13 @@ footer{
     align-items: center;
     justify-content: center;
     background-color: #282c34;
-    height: 3vh;
+    height: 6vh;
+}
+a{
+    margin-right: 1rem;
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    color: #06bcee;
 }

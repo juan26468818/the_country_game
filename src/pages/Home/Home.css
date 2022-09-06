@@ -62,7 +62,7 @@ html{
     animation: transition_w .3s ease-in-out 0s alternate;
 
 }.loser{
-    background-color: rgb(250, 43, 43);
+    background-color: rgb(255, 110, 110);
     animation: transition_l .3s ease-in-out 0s alternate;
 }
 .counter{
