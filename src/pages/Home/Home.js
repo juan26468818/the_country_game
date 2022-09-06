@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { useLocation } from "wouter";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
-import ReactHowler from "react-howler";
 import correctSound from "../../correct_answer.wav"
 import incorrectSound from "../../incorrect_answer.wav"
 const Home = (() =>{
@@ -108,8 +107,6 @@ const Home = (() =>{
         if(countries !== undefined && firstNum !== secondNum){
             return (
                 <div className="card-container">
-                    <ReactHowler src={correctSound} playing={playCorrect} loop={true} volume={parseInt(localStorage.getItem("Volume"))} />
-                    <ReactHowler src={incorrectSound} playing={playIncorrect} loop={true} volume={parseInt(localStorage.getItem("Volume"))} />
                     <p>{countries[card].name.common}</p>
                     <img src={countries[card].flags.svg} className="flag"/>
                     <button type="button" className="button" onClick={handleClick} id={card} disabled={disable}>Has more people</button>
