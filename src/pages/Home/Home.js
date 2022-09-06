@@ -3,8 +3,10 @@ import { useEffect, useState } from "react"
 import { useLocation } from "wouter";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
+import useSound from "use-sound";
 import correctSound from "../../correct_answer.wav"
 import incorrectSound from "../../incorrect_answer.wav"
+
 const Home = (() =>{
     const [countries, setCountries] = useState();
     const [firstNum, setFirstNum] = useState(Math.floor(Math.random()*250));
@@ -15,8 +17,16 @@ const Home = (() =>{
     const [record, setRecord] = useState(!localStorage.getItem("record") ? 0 : localStorage.getItem("record"));
     const [disable, setDisable] = useState(false);
     const [location, setLocation] = useLocation();
-    const [playCorrect, setPlayCorrect] = useState(false);
-    const [playIncorrect, setPlayIncorrect] = useState(false);
+
+    const [playCorrect] = useSound(correctSound,{
+        playbackRate: 1,
+        interrupt: true
+    });
+    const [playIncorrect] = useSound(incorrectSound,{
+        playbackRate: 1,
+        interrupt: true
+    });
+
     //Llamada a API de paises.
     useEffect(()=>{
         fetch('https://restcountries.com/v3.1/all')
@@ -25,20 +35,18 @@ const Home = (() =>{
             .catch(err => console.error(err));
 
     }, [])
-
     //Manejador de evento.
     const handleClick = ((e)=>{
         e.preventDefault()
         if(e.target === document.getElementById(firstNum)&& countries[firstNum].population > countries[secondNum].population){
             setDisable(true);
-            setPlayCorrect(true)
+            playCorrect();
             setVisible("result_v")
             setBackColor("winner")
             setCounter(counter+1)
             if(record <= counter) setRecord(counter+1)
             setTimeout(() => {
                 setDisable(false)
-                setPlayCorrect(false)
                 setBackColor("")
                 setVisible("result")
                 setFirstNum(Math.floor(Math.random()*250))
@@ -46,14 +54,13 @@ const Home = (() =>{
             }, 1648);
         }else if(e.target === document.getElementById(secondNum) && countries[secondNum].population > countries[firstNum].population){
             setDisable(true)
-            setPlayCorrect(true)
+            playCorrect();
             setVisible("result_v")
             setBackColor("winner")
             setCounter(counter+1)
             if(record <= counter) setRecord(counter+1)
             setTimeout(() => {
                 setDisable(false)
-                setPlayCorrect(false)
                 setBackColor("")
                 setVisible("result")
                 setFirstNum(Math.floor(Math.random()*250))
@@ -61,12 +68,11 @@ const Home = (() =>{
             }, 1648);
         }else if(e.target === document.getElementById(firstNum)&& countries[firstNum].population < countries[secondNum].population){
             setDisable(true)
-            setPlayIncorrect(true)
+            playIncorrect();
             setVisible("result_v")
             setBackColor("loser")
             setTimeout(() => {
                 setDisable(false)
-                setPlayCorrect(false)
                 setBackColor("")
                 setVisible("result")
                 setFirstNum(Math.floor(Math.random()*250))
@@ -77,12 +83,11 @@ const Home = (() =>{
 
         }else if(e.target === document.getElementById(secondNum)&& countries[secondNum].population < countries[firstNum].population){
             setDisable(true)
-            setPlayIncorrect(true)
+            playIncorrect()
             setVisible("result_v")
             setBackColor("loser")
             setTimeout(() => {
                 setDisable(false)
-                setPlayCorrect(false)
                 setBackColor("")
                 setVisible("result")
                 setFirstNum(Math.floor(Math.random()*250))
