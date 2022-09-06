@@ -1,0 +1,32 @@
+.notFound-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #06bcee;
+}
+.notFound-sand{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 200px;
+    width: 800px;
+    background-color: #ECE2C6;
+    border-radius: 0 1000px 0 0;
+}
+.notFound-ocean{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 200px;
+    width: 800px;
+    background-color: #9fd5d1;
+    border-radius: 100px 0 0 10px;
+}
+.not-found_p-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
